@@ -78,7 +78,7 @@ for cpu in add_path(SourceFolder):
     Workbook = Application.Workbooks.open(cpu)
     currentname = Application.ActiveWorkbook.name
     Workbook.RefreshAll()
-    time.sleep(420)
+    time.sleep(540)
     oldname = currentname
     new_name = update_date(oldname)
     Workbook.SaveAs(destination + "/" + new_name)

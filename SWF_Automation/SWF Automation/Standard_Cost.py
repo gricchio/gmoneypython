@@ -24,20 +24,14 @@ sheet_name = 'Data'
 
 standards_folder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project'
 feeder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Feeder\feeder.xlsx'
-export_loc = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\Export'
+export_loc = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Export'
 stds_16 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\2016 - Costs.xlsx'
 stds_17 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\2017 - Costs.xlsx'
 
-list_of_files = []
-
 #getstandards
-os.chdir(standards_folder)
+os.chdir(export_loc)
 if not os.path.exists("Export"):
     os.mkdir("Export")
-
-for file in os.listdir(standards_folder):
-    if os.path.isfile(file):
-        list_of_files.append(file)
 
 
 standards_matrix_16 = pd.DataFrame()

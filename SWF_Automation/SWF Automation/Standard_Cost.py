@@ -25,11 +25,12 @@ sheet_name = 'Data'
 standards_folder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project'
 feeder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Feeder\feeder.xlsx'
 export_loc = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Export'
+export_loc2 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project'
 stds_16 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\2016 - Costs.xlsx'
 stds_17 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\2017 - Costs.xlsx'
 
 #getstandards
-os.chdir(export_loc)
+os.chdir(export_loc2)
 if not os.path.exists("Export"):
     os.mkdir("Export")
 

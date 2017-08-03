@@ -17,10 +17,17 @@ index_col = 0
 columns_to_pull = 'A:P' #can specify number of cols, individual columns separated Etc.
 rows_to_pull = 15
 sheet_name = 'Data'
-feeder = r'F:\Drive\Python Test Materials\Std Cost Files\Feeder\feeder.xlsx'
-#standards_folder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files'
-standards_folder = r'F:\Drive\Python Test Materials\Std Cost Files'
-export_loc = r'F:\Drive\Python Test Materials\Std Cost Files\Export'
+
+#feeder = r'F:\Drive\Python Test Materials\Std Cost Files\Feeder\feeder.xlsx'
+#standards_folder = r'F:\Drive\Python Test Materials\Std Cost Files'
+#export_loc = r'F:\Drive\Python Test Materials\Std Cost Files\Export'
+
+standards_folder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project'
+feeder = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Feeder\feeder.xlsx'
+export_loc = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\Export'
+stds_16 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\2016 - Costs.xlsx'
+stds_17 = r'C:\Users\riccga\Desktop\Python Exports\Standard Cost Project\Std Cost Files\2017 - Costs.xlsx'
+
 list_of_files = []
 
 #getstandards
@@ -33,14 +40,17 @@ for file in os.listdir(standards_folder):
         list_of_files.append(file)
 
 
-standards_matrix = pd.DataFrame()
+standards_matrix_16 = pd.DataFrame()
+standards_matrix_17 = pd.DataFrame()
     
-for file in list_of_files:
-    year = file[0:5]
-    data = pd.read_excel(file, 0, index_col='SKUWHSE',parse_cols= "A:P")
-    standards_matrix = standards_matrix.append(data)
+data = pd.read_excel(stds_16, 0, index_col='SKUWHSE',parse_cols= "A:P")
+standards_matrix_16 = standards_matrix_16.append(data)
 
-#print standards_matrix
+data2 = pd.read_excel(stds_17, 0, index_col='SKUWHSE',parse_cols= "A:P")
+standards_matrix_17 = standards_matrix_17.append(data2)
+
+
+
 
 #standards_matrix.to_excel(os.path.join(export_loc, 'raw_export.xlsx'))
 
@@ -49,9 +59,11 @@ for file in list_of_files:
 lookup_table = pd.DataFrame()
 
 
-feeder_data = pd.read_excel(feeder, 0, index_col=0, parse_cols="A:C")
+feeder_data = pd.read_excel(feeder, 0, index_col=0, parse_cols="A:G")
 
-feeder_data['Std_cost'] = feeder_data.Concat.map(standards_matrix.StdTtlCst)
+feeder_data['Std_cost_16'] = feeder_data.Concat.map(standards_matrix_16.StdTtlCst)
+feeder_data['Std_cost_17'] = feeder_data.Concat.map(standards_matrix_17.StdTtlCst)
+
 
 feeder_data.to_excel(os.path.join(export_loc, 'raw_export.xlsx'))
 

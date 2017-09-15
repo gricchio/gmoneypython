@@ -5,18 +5,13 @@ Created on Sep 15, 2017
 '''
 import time
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.action_chains import ActionChains
 import selenium
-
 import selenium.webdriver.chrome.service as service
-from selenium.webdriver.support.expected_conditions import _find_element,\
-    _find_elements
-service = service.Service(r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\chromedriver.exe')
 
+service = service.Service(r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\chromedriver.exe')
+driver_file = r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\chromedriver.exe'
 #import selenium.webdriver.ie.service as service
-#service = service.Service(r'C:\Users\riccga\Google Drive\Python Test Materials\WebInteract\Drivers\IEDriverServer.exe')
+#service = service.Service(r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\IEDriverServer.exe')
 
 def find_xpath(x):
     element = driver.find_element_by_xpath(x)
@@ -25,11 +20,18 @@ def find_xpath(x):
 
 url = 'https://springswindowfashions.saastagetik.com/prod/5#!/PROD_TGK_SPRINGSWINDOWFASHIONS_001'
 
+options = webdriver.ChromeOptions()
+#options.add_argument('--ignore-certificate-errors')
+
 
 service.start()
 capabilities = {'chrome.binary': '/path/to/custom/chrome'}
-driver = webdriver.Remote(service.service_url, capabilities)
+#driver = webdriver.Remote(service.service_url, capabilities)
+driver = webdriver.Chrome(driver_file)
 driver.get(url)
+driver.switch_to_active_element()
+
+
 
 #Click the enter button
 """

@@ -13,7 +13,7 @@ import selenium
 import selenium.webdriver.chrome.service as service
 from selenium.webdriver.support.expected_conditions import _find_element,\
     _find_elements
-service = service.Service(r'C:\Users\riccga\Google Drive\Python Test Materials\WebInteract\Drivers\chromedriver.exe')
+service = service.Service(r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\chromedriver.exe')
 
 #import selenium.webdriver.ie.service as service
 #service = service.Service(r'C:\Users\riccga\Google Drive\Python Test Materials\WebInteract\Drivers\IEDriverServer.exe')

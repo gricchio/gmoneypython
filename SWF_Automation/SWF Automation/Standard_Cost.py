@@ -56,8 +56,8 @@ lookup_table = pd.DataFrame()
 
 feeder_data = pd.read_excel(feeder, 0, index_col=0, parse_cols="A:G")
 
-feeder_data['Std_cost_16'] = feeder_data.Concat.map(standards_matrix_16.StdTtlCst)
-feeder_data['Std_cost_17'] = feeder_data.Concat.map(standards_matrix_17.StdTtlCst)
+feeder_data['Std_cost_16'] = feeder_data.applymap(standards_matrix_16.StdTtlCst)
+feeder_data['Std_cost_17'] = feeder_data.applymap(standards_matrix_17.StdTtlCst)
 
 
 feeder_data.to_excel(os.path.join(export_loc, 'raw_export.xlsx'))

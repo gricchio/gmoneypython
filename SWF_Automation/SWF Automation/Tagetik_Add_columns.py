@@ -39,7 +39,7 @@ for sheet in sheets:
     insert_format(insert_list)
     
 ws.Columns("C").Copy()
-ws.Columns("O").PasteSpecial(xlPasteFormats)
+ws.Columns("O").PasteSpecial(Paste= "xlPasteFormats")
 
 
 

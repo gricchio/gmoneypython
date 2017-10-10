@@ -10,8 +10,9 @@ cpu_files = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Fil
 workbook = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files\Reynosa 1 Facility Reviews.xlsm'
 
 sheets = ['Assembly Actuals','Component Actuals']
-#col_to_insert = ['C','E','G','J','L','O','R','T','W']
-col_to_insert = [3,5,7,10,12,15,18,20,23]
+col_to_insert = ['C','E','G','J','L','O','R','T','W']
+col_before = ['B','D','F','I','K','N','Q','S','V']
+#col_to_insert = [3,5,7,10,12,15,18,20,23]
 assembly_unit_of_measure_row = 14
 chart_gap  = 92
 
@@ -42,19 +43,24 @@ ws = xl.Worksheets('Assembly Actuals')
 
 
 #insert columns
-"""
+
 for sheet in sheets:
     ws = xl.Worksheets(sheet)
     insert_format(col_to_insert)
 
+for sheet in sheets:
+    ws = xl.Worksheets(sheet)
+    for column in col_to_insert:
+        for row in rows_needed_for_formulas:
+            ws.Range(column + str(row)).Formula = "=iferror(offset(" + column + str(row)+ ",0,-1)" + "/" + "offset(" + column + str(assembly_unit_of_measure_row) + ",0,-1)" +",0)"    
+    
+
+
+
 """
 
-ws.Cells(3,8).Formula = "=iferror(" + str() 
 
-"""
-for columns in col_to_insert:
-    for row in rows_needed_for_formulas:
-        
+ws.Cells(3,8).Formula = "=iferror("+ "B" + str(86) + "/" + "C" + str(14) +",0)"
 
 
 

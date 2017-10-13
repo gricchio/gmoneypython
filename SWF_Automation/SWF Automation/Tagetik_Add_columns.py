@@ -56,12 +56,15 @@ for file in files:
     for sheet in sheets:
         ws = xl.Worksheets(sheet)
         insert_format(col_to_insert)
+
     for sheet in sheets:
         ws = xl.Worksheets(sheet)
         for x in range(0,number_of_charts):
             for column in col_to_insert:
                 for row in rows_needed_for_formulas:
-                    ws.Range(column + str(row + (x*chart_gap))).Formula = "=iferror(offset(" + column + str(row + (x*chart_gap)) + ",0,-1)" + "/" + "offset(" + column + str(assembly_unit_of_measure_row + (x*chart_gap)) + ",0,-1)" +",0)"   
+                    ws.Range(column + str(row + (x*chart_gap))).Formula = "=iferror(offset(" + column + str(row + (x*chart_gap)) + ",0,-1)" + "/" + "offset(" + column + str(assembly_unit_of_measure_row + (x*chart_gap)) + ",0,-1)" +",0)"
+                  
+
     wb.Close(True)  
     
     

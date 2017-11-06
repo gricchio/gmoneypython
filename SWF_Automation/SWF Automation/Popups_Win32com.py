@@ -9,4 +9,4 @@ import win32com.client
 
 
 message_Box = win32com.client.Dispatch("WScript.Shell")
-message_Box.Popup(u"Write whatever you would like here")
+message_Box.Popup(u"Dominic Smells!")

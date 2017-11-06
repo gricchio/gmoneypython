@@ -35,11 +35,11 @@ if not os.path.exists("Export"):
     os.mkdir("Export")
 
 
-standards_matrix_16 = pd.DataFrame()
+#standards_matrix_16 = pd.DataFrame()
 standards_matrix_17 = pd.DataFrame()
     
-data = pd.read_excel(stds_16, 0, index_col='SKUWHSE',parse_cols= "A:P")
-standards_matrix_16 = standards_matrix_16.append(data)
+#data = pd.read_excel(stds_16, 0, index_col='SKUWHSE',parse_cols= "A:P")
+#tandards_matrix_16 = standards_matrix_16.append(data)
 
 data2 = pd.read_excel(stds_17, 0, index_col='SKUWHSE',parse_cols= "A:P")
 standards_matrix_17 = standards_matrix_17.append(data2)
@@ -56,7 +56,7 @@ lookup_table = pd.DataFrame()
 
 feeder_data = pd.read_excel(feeder, 0, index_col=0, parse_cols="A:G")
 
-feeder_data['Std_cost_16'] = feeder_data.applymap(standards_matrix_16.StdTtlCst)
+#feeder_data['Std_cost_16'] = feeder_data.applymap(standards_matrix_16.StdTtlCst)
 feeder_data['Std_cost_17'] = feeder_data.applymap(standards_matrix_17.StdTtlCst)
 
 

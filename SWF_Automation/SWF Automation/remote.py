@@ -13,7 +13,9 @@ loc = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files'
 excel_sheet = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files\Middleton.xlsm'
 
 
-for t in range(0, 1000):
+x = 1
+
+while True:
     time.sleep(3)
     Application = win32com.client.Dispatch("Excel.Application")
     Application.Visible = 1

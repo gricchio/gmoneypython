@@ -9,14 +9,14 @@ import win32com.client
 cpu_files = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files'
 workbook = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files\Reynosa 1 Facility Reviews.xlsm'
 
-sheets = ['Assembly Actuals','Component Actuals']
-#sheets = ['Component Actuals']
+#sheets = ['Assembly Actuals','Component Actuals']
+sheets = ['Component Actuals']
 col_to_insert = ['C','E','G','J','L','O','R','T','W']
 col_before = ['B','D','F','I','K','N','Q','S','V']
 #col_to_insert = [3,5,7,10,12,15,18,20,23]
 assembly_unit_of_measure_row = 14
 chart_gap  = 92
-number_of_charts = 6
+number_of_charts = 10
 #should be 10
 
 rows_needed_for_formulas = [17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,72,73,74,78,79,80,81,82,86,88,92,93]

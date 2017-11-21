@@ -12,9 +12,6 @@ from __builtin__ import file
 loc = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files'
 excel_sheet = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files\Middleton.xlsm'
 
-
-x = 1
-
 while True:
     time.sleep(3)
     Application = win32com.client.Dispatch("Excel.Application")

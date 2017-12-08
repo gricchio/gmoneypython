@@ -7,6 +7,7 @@ import time
 from selenium import webdriver
 import selenium
 import selenium.webdriver.chrome.service as service
+from pynput.keyboard import Controller, Key
 
 service = service.Service(r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\chromedriver.exe')
 driver_file = r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Automation\WebInteract\Drivers\chromedriver.exe'
@@ -16,6 +17,11 @@ driver_file = r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_A
 def find_xpath(x):
     element = driver.find_element_by_xpath(x)
     return element
+
+def press(x):
+    keyboard.press(x)
+    keyboard.release(x)
+keyboard = Controller()
 
 
 url = 'https://springswindowfashions.saastagetik.com/prod/5#!/PROD_TGK_SPRINGSWINDOWFASHIONS_001'
@@ -28,8 +34,18 @@ service.start()
 capabilities = {'chrome.binary': '/path/to/custom/chrome'}
 #driver = webdriver.Remote(service.service_url, capabilities)
 driver = webdriver.Chrome(driver_file)
-driver.get(url)
+
+i = [1]
+for x in i:
+    driver.get(url)
+    break
+press(Key.enter)
+t = t + 1
+print t
+        
+
 driver.switch_to_active_element()
+
 
 
 

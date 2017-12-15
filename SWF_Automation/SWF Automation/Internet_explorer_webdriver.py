@@ -28,13 +28,15 @@ service = r'C:\Users\riccga\Desktop\Python Exports\Github\gmoneypython\SWF_Autom
 url = 'https://springswindowfashions.saastagetik.com/prod/5#!/PROD_TGK_SPRINGSWINDOWFASHIONS_001'
 
 curr_Scenario = '2017ACT - 2017 ACTUAL'
-curr_pd = '11 - November'
+curr_pd = '11 - November '
 
 #xpaths
 
 #   Main Menus
 forecast_submenu = r'//*[@id="tgk.main.workarea"]/div/div/div/div/div/div/div/div[1]/div/div/div[3]/div/div[2]/div/div[3]/div[1]/div[2]/div/div/div/div/div[1]/div'
 actual_submenu = r'//*[@id="tgk.main.workarea"]/div/div/div/div/div/div/div/div[1]/div/div/div[3]/div/div[2]/div/div[2]/div[1]/div[2]/div/div/div/div/div[1]/div'
+sign_out = r'//*[@id="tgk.main.header"]/div/div/div[2]/div/div[4]/div/div/span'
+
 
 ## Actual Selections
 
@@ -45,7 +47,14 @@ midd_actuals = r'//*[@id="web.vaadin.ui.components.DefaultTgkWindow.mainLayout"]
 
 actuals_Scenario = r'//*[@id="gwt-uid-58"]/div/div/div/div/div/input'
 actuals_PD = r'//*[@id="gwt-uid-60"]/div/div/div/div/div/input'
-actuals_menu = [actuals_Scenario, actuals_PD]
+okay_button = r'//*[@id="tagetikcpm5-1550217664-overlays"]/div[3]/div/div/div[3]/div/div/div[3]/div/div/div/div/div/div[3]'
+
+
+####On cpu
+
+analysis = r'//*[@id="gwt-uid-136"]/div'
+exp_to_excel = r'//*[@id="web.vaadin.ui.components.DefaultTgkWindow.mainLayout"]/div/div[3]/div/div/div/div/div/div/div[1]/div/div/div[2]/div/div/div/div[1]/div/span[2]/span'
+exit_form = r'//*[@id="web.vaadin.ui.components.DefaultTgkWindow.customComponentLayout"]/div[4]/div/div/span'
 
 
 driver = webdriver.Ie(service)
@@ -57,7 +66,7 @@ for i in taco:
     time.sleep(3)
     press(Key.enter)
 
-time.sleep(8)
+time.sleep(12)
 
 ##forecasting = driver.find_element_by_xpath(actual_submenu)
 ##forecasting.click()
@@ -75,5 +84,11 @@ keyboard.type(curr_Scenario)
 xpath_click(actuals_PD)
 keyboard.type(curr_pd)
 press(Key.enter)
+xpath_click(okay_button)
+
+time.sleep(8)
+xpath_select_click(analysis)
+time.sleep(3)
+xpath_select_click(exp_to_excel)
 
 

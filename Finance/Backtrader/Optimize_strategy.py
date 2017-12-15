@@ -12,10 +12,11 @@ import datetime, os.path, sys
 class TestStrategy(bt.Strategy):
     params = (
         ('maperiod', 15),
-        ('exitbars', 5),      
+        ('exitbars', 5),
+        ('printlog', False)       
         )
     
-    def log(self, txt, dt=None):
+    def log(self, txt, dt=None, doprint=False):
         dt = dt or self.datas[0].datetime.date(0)
         print(' %s, %s' % (dt.isoformat(), txt))
     
@@ -29,14 +30,6 @@ class TestStrategy(bt.Strategy):
         self.sma = bt.indicators.MovingAverageSimple(self.datas[0], period=self.params.maperiod)
      
      
-    # Indicators for the plotting show
-        bt.indicators.ExponentialMovingAverage(self.datas[0], period=25)
-        bt.indicators.WeightedMovingAverage(self.datas[0], period=25).subplot = True
-        bt.indicators.Stochastic(self.datas[0])
-        bt.indicators.MACDHisto(self.datas[0])
-        rsi = bt.indicators.RSI(self.datas[0])
-        bt.indicators.SmoothedMovingAverage(rsi, period=10)
-        bt.indicators.ATR(self.datas[0]).plot = False   
         
         
     def next(self):
@@ -106,7 +99,10 @@ class TestStrategy(bt.Strategy):
         if not trade.isclosed:
             return
         self.log('Operation Profit, Gross %.2f, Net %.2f' % (trade.pnl, trade.pnlcomm))
-        
+    
+    def stop(self):
+        self.log('(MA Period %2d) Ending Value %.2f' %
+                 (self.params.maperiod, self.broker.getvalue()))
 
 if __name__ == '__main__' :
     #create Cerebro entity
@@ -115,10 +111,7 @@ if __name__ == '__main__' :
 #adjust Parameters
     
     # Add a strategy
-    cr.addstrategy(TestStrategy)
-    
-    
-    
+    cr.optstrategy(TestStrategy, maperiod=(10,31))  
         
     #locating the script
     modpath = os.path.dirname(os.path.abspath(sys.argv[0]))
@@ -149,4 +142,4 @@ if __name__ == '__main__' :
     print ('Starting Portfolio Value: %.2f' % cr.broker.getvalue())
     cr.run()    
     print ('Ending Portfolio Value: %.2f' % cr.broker.getvalue())
-    cr.plot()
+

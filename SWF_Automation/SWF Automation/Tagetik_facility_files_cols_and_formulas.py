@@ -67,8 +67,8 @@ for file in files:
                   
 
     wb.Close(True)  
-    
-    
+
+print str(files) + " --- complete"    
 
 """
 

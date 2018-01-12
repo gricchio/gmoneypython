@@ -9,8 +9,8 @@ import win32com.client
 cpu_files = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files'
 workbook = r'C:\Users\riccga\Desktop\Python Exports\Tagetik\Facility Review Files\Reynosa 1 Facility Reviews.xlsm'
 
-sheets = ['Assembly Actuals','Component Actuals']
-#sheets = ['Component Actuals']
+#sheets = ['Assembly Actuals','Component Actuals']
+sheets = ['Component Actuals']
 col_to_insert = ['C','E','G','J','L','O','R','T','W']
 col_before = ['B','D','F','I','K','N','Q','S','V']
 #col_to_insert = [3,5,7,10,12,15,18,20,23]

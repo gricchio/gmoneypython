@@ -7,7 +7,7 @@ Created on Jan 11, 2018
 
 import os
 import win32com.client
-from pydispatch.dispatcher import send
+
 
 #find my files
 

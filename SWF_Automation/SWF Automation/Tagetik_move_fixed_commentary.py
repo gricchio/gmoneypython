@@ -76,8 +76,8 @@ for tab in sheetz1:
     rxwb.Sheets(tab).Range(column).Select()
     rxwb.Sheets(tab).Paste()
     i = i + 1
-#sendwb.Close(False)
-#rxwb.Close(True)
+sendwb.Close(False)
+rxwb.Close(True)
 
 """
     for sheet in sheets:

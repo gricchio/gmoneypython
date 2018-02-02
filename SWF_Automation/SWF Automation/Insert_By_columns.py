@@ -23,16 +23,19 @@ for item in depts["Dept"]:
     listofdepts.append(item)
 
 
-"""   
+ 
 #dispatch Excel
 
 xl = win32com.client.Dispatch("Excel.Application")
 xl.Visible = 1
 xl.DisplayAlerts = 'false'
 dest = xl.Workbooks.Open(destination)
-"""
+
+#if Excel is already running, then you only need below
 
 dest = win32com.client.GetActiveObject("Excel.Application")
+
+dest.ActiveCell.Select()
 insert_cell= Starting_Cell
 dest.Range(insert_cell).Select()
 for dept in listofdepts:

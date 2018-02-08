@@ -12,12 +12,14 @@ SourceFile = r'C:\Users\riccga\Desktop\Python Exports\Insert Values'
 os.chdir(SourceFile)
 depts = pd.read_excel("Tag_Dept_Cheatsheet.xlsx")
 destination = os.path.join(SourceFile,"Destination.xlsx")
-Starting_Cell = "B3"
-number_of_rows_to_skip = 5
+Starting_Cell = "B4"
+number_of_rows_to_skip = 7
 
 
 
 listofdepts = []
+
+
 
 for item in depts["Dept"]:
     listofdepts.append(item)
@@ -40,5 +42,5 @@ insert_cell= Starting_Cell
 dest.Range(insert_cell).Select()
 for dept in listofdepts:
     dest.ActiveCell.Formula = str(dept)
-    dest.ActiveCell.Offset(number_of_rows_to_skip+2,1).Select()
+    dest.ActiveCell.Offset(number_of_rows_to_skip+1,1).Select()
     

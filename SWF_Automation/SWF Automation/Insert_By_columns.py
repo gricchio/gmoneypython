@@ -12,8 +12,8 @@ SourceFile = r'C:\Users\riccga\Desktop\Python Exports\Insert Values'
 os.chdir(SourceFile)
 depts = pd.read_excel("Tag_Dept_Cheatsheet.xlsx")
 destination = os.path.join(SourceFile,"Destination.xlsx")
-Starting_Cell = "B4"
-number_of_rows_to_skip = 7
+Starting_Cell = "D6"
+number_of_rows_to_skip = 32
 
 
 

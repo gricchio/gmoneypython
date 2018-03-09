@@ -34,7 +34,7 @@ url = 'https://ww2.capsim.com/login/'
 options = webdriver.ChromeOptions()
 #options.add_argument('--ignore-certificate-errors')
 
-passw = "merlin"
+passw = "hello"
 
 service.start()
 capabilities = {'chrome.binary': '/path/to/custom/chrome'}

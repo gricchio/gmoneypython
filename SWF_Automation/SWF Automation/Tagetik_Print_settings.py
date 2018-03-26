@@ -25,7 +25,7 @@ print files
 files = os.path.join(location, files[0])
 
 #Dispatch Excel
-#"""
+"""
 xl = win32com.client.Dispatch("Excel.Application")
 xl.Visible = 1
 xl.DisplayAlerts = 'false'
@@ -40,14 +40,17 @@ wb = xl.Workbooks.Open(files)
 wb = win32com.client.GetObject(files)
 
 #If Excel is already Running -------
-"""
+#"""
 ws = wb.Worksheets("Assembly Actuals")
 
-ws.View = "xlPageBreakPreview"
+ws.ResetAllPageBreaks()
+
+ws.PageSetup.PrintArea = ws.Range("A2","D4").Address
                    
-ws.PageSetup.PrintArea = print_area
+#ws.HPageBreaks.Add(ws.Cells(print_area))
 
 
-ws.Rows("97:97").Select
+
+#ws.Rows("97:97").Select
 
 #ws.ActiveWindow.SelectedSheets.HPageBreaks.Add

@@ -111,7 +111,7 @@ for wsss in sheets:
         hpagebreak = "A" + str(first_number)    
         xl.ActiveWindow.SelectedSheets.HPageBreaks.Add(Before=ws.Range(str(hpagebreak)))
 
-#wb.Close(True)
+wb.Close(True)
 print str(files) + " --- complete"    
 
 

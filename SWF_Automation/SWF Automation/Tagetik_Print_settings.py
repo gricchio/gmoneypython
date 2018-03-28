@@ -8,8 +8,6 @@ import win32com.client
 
 location = r'C:\Users\riccga\Desktop\Python Exports\Print Settings'
 
-print_area = "B6:X925"
-
 chart_gap  = 92
 number_of_charts = 10
 

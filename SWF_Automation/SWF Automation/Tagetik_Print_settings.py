@@ -10,6 +10,15 @@ location = r'C:\Users\riccga\Desktop\Python Exports\Print Settings'
 
 print_area = "B6:X925"
 
+chart_gap  = 92
+number_of_charts = 10
+
+chart_start = "A2"
+final_row = 98 + (number_of_charts - 1)*chart_gap
+chart_end = "Y" + str(final_row)
+
+
+
 
 #print folder
 
@@ -25,13 +34,14 @@ print files
 files = os.path.join(location, files[0])
 
 #Dispatch Excel
-"""
+#"""
 xl = win32com.client.Dispatch("Excel.Application")
 xl.Visible = 1
 xl.DisplayAlerts = 'false'
 
 #Open workbook
 wb = xl.Workbooks.Open(files)
+
 
 """
 
@@ -40,17 +50,26 @@ wb = xl.Workbooks.Open(files)
 wb = win32com.client.GetObject(files)
 
 #If Excel is already Running -------
-#"""
+"""
 ws = wb.Worksheets("Assembly Actuals")
 
 ws.ResetAllPageBreaks()
 
-ws.PageSetup.PrintArea = ws.Range("A2","D4").Address
-                   
-#ws.HPageBreaks.Add(ws.Cells(print_area))
+ws.Application.ActiveWindow.View = 2
 
+ws.PageSetup.PrintArea = ws.Range(chart_start,chart_end).Address
 
-
-#ws.Rows("97:97").Select
-
-#ws.ActiveWindow.SelectedSheets.HPageBreaks.Add
+for i in range(0,number_of_charts):
+    first_number = i*chart_gap + 99
+    hpagebreak = "A" + str(first_number)    
+    xl.ActiveWindow.SelectedSheets.HPageBreaks.Add(Before=ws.Range(str(hpagebreak)))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

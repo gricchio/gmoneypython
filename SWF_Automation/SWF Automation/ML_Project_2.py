@@ -25,23 +25,26 @@ from scipy.stats import randint
 dir = r'C:\Users\riccga\Desktop\Python Exports\Machine Learning'
 os.chdir(dir)
 
-data_source = 'example_data.csv'
+data_source = 'HAIN Historical.csv'
 
-df = pd.read_csv(data_source)
-df= pd.get_dummies(df)
+dfa = pd.read_csv(data_source)
+df= pd.get_dummies(dfa)
 
 X = pd.DataFrame()
 Y = pd.DataFrame()
 
-#add data to X frame
+list = dfa.head(1)
+    
+print list
 
-X['x'] = df['x']
-X['y'] = df['y']
-
+"""
 #add data to Y frame
 for col in df.columns.values:
     if col not in ['x', 'y']:
         Y[col] = df[col]
+
+print X.head(5)
+print Y.head(5)
 
 #Create separate data sets for training and testing
 
@@ -62,7 +65,7 @@ c_range_clf = expon(scale=1)
 tol_range = expon(scale=1e-4)
 degree_range = randint(1, 10)
 
-# Define the parameter distribution for the classifier
+# Define the parameter distribkution for the classifier
 param_dist_clf = {'poly__degree': degree_range, 
                   'clf__C': c_range_clf, 
                   'clf__tol': tol_range, 
@@ -164,3 +167,4 @@ if __name__ == '__main__':
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     plt.show()
+"""

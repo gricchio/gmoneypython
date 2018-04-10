@@ -17,8 +17,21 @@ col_before = ['B','D','F','I','K','N','Q','S','V']
 #col_to_insert = [3,5,7,10,12,15,18,20,23]
 assembly_unit_of_measure_row = 14
 chart_gap  = 92
-number_of_charts = 4
+number_of_charts = 6
+
 #should be 10
+'''
+MD - 10
+R1 - 10
+R2 - 6
+TJ - 4
+Cta - 3
+
+
+
+'''
+
+
 
 rows_needed_for_formulas = [17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,72,73,74,78,79,80,81,82,86,88,92,93]
 
@@ -52,11 +65,21 @@ xl.DisplayAlerts = 'false'
 
 for file in files:
     wb = xl.Workbooks.Open(os.path.join(cpu_files,file))
-
-if xl.Worksheets("Assembly Actuals").Range("H14").Value != "Equivalent Units":
-    xl.Worksheets("Assembly Actuals").Rows(1).EntireRow.Delete()    
-if xl.Worksheets("Component Actuals").Range("H14").Value != "Earned Hours":
-    xl.Worksheets("Component Actuals").Rows(1).EntireRow.Delete() 
+while True:
+    try:
+        if xl.Worksheets("Assembly Actuals").Range("E14").Value != "Equivalent Units":
+            xl.Worksheets("Assembly Actuals").Rows(1).EntireRow.Delete()
+        break
+    except:
+        break
+     
+while True:
+    try:
+        if xl.Worksheets("Component Actuals").Range("E14").Value != "Earned Hours":
+            xl.Worksheets("Component Actuals").Rows(1).EntireRow.Delete() 
+        break
+    except:
+        break
 
 #insert columns / Formatting
 

@@ -17,7 +17,7 @@ col_before = ['B','D','F','I','K','N','Q','S','V']
 #col_to_insert = [3,5,7,10,12,15,18,20,23]
 assembly_unit_of_measure_row = 14
 chart_gap  = 92
-number_of_charts = 6
+number_of_charts = 3
 
 #should be 10
 '''
@@ -26,7 +26,7 @@ R1 - 10
 R2 - 6
 TJ - 4
 Cta - 3
-
+Gry - 1
 
 
 '''

@@ -29,7 +29,7 @@ df = df.set_index(['Soldto'])
 df['Delta'] = df['NEW'] - df['OLD']
 #print df.loc[912019]
 
-print "wooo"
+
 """
 xl = win32com.client.Dispatch("Excel.Application")
 xl.Visible = 1

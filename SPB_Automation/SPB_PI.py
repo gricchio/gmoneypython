@@ -30,7 +30,7 @@ soldtos = []
 for i in master['Customer'].values:
     if i not in soldtos:
         soldtos.append(i)
-
+print len(soldtos)
 master = master.set_index(['Customer'])
 
 for account_name in soldtos[0:3]:

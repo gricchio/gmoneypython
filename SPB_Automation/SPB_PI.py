@@ -8,7 +8,7 @@ import xlwings as xw
 
 
 #-------------Project Locations
-
+customer_names = r'C:\Users\200460\Desktop\Python Projects\Price List Project\COPA_backup.xlsx'
 pi_template = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price Increase Sample.xlsx'
 price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price_data_real.xlsx'
 #price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price_data_test.xlsx'
@@ -30,15 +30,25 @@ soldtos = []
 for i in master['Customer'].values:
     if i not in soldtos:
         soldtos.append(i)
-print len(soldtos)
-master = master.set_index(['Customer'])
 
-for account_name in soldtos[0:3]:
+
+
+
+customer_names_file = pd.ExcelFile(customer_names)
+df_customernumbers = pd.read_excel(customer_names_file, "Backup")
+master = master.merge(df_customernumbers,on='Customer')
+master = master.set_index(['Customer'])
+master.to_excel("outputmaster.xlsx")
+df_customernumbers = df_customernumbers.set_index(['Customer'])
+cndt = df_customernumbers.to_dict('series')
+
+
+for account_name in soldtos[0:2]:
     print "Now working on customer number " + str(account_name)
     wb = xw.Book(pi_template)
     ws = wb.sheets[0]
-    ws.range('C9').value = account_name
-    ws.range('C10').value = account_name
+    ws.range('C9').options(index=False, header=False).value = master.loc[[account_name], ['CustomerName']][0:1]
+    ws.range('C10').options(index=False, header=False).value = account_name
     #need to add 'UPC' in lieu of DCHL
     df2 = master.loc[[account_name], ['Item','DChl', 'Description', 'UOM', 'PR00', 'NEW']]
     df2['Delta'] = df2['NEW'] - df2['PR00']

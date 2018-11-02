@@ -50,6 +50,6 @@ for file in files:
         xl.ActiveWindow.SelectedSheets.HPageBreaks.Add(Before=wsa.Range(str(hpagebreak)))
     wb.Save()
     file = str(file[:len(file)-5])
-    xl.ActiveSheet.ExportAsFixedFormat(0,os.path.join(PDF_files, file + ' Price Increase 2018'),0,0,0)
+    xl.ActiveSheet.ExportAsFixedFormat(0,os.path.join(PDF_files, file),0,0,0)
     
     wb.Close(True)

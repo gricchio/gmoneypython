@@ -12,7 +12,7 @@ start_time = time.time()
 
 #-------------Project Locations
 customer_names = r'C:\Users\200460\Desktop\Python Projects\Price List Project\COPA_backup.xlsx'
-pi_template = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price Increase Sample.xlsx'
+pi_template = r'C:\Users\200460\Desktop\Python Projects\Price List Project\PG Price Increase Sample.xlsx'
 #price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price_data_real.xlsx'
 price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Master File V1 10-30-2018.xlsx'
 #price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price_data_test.xlsx'
@@ -21,7 +21,7 @@ project_path = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Comp
 #project_path = r'C:\Users\Gino Ricchio\Desktop\Python\Completed'
 #pi_template = r'C:\Users\Gino Ricchio\Desktop\Python\Price Increase Sample.xlsx'
 
-sheet_name = "A005 Final"
+sheet_name = "A032 PG RAW"
 
 #-------------Move to Project Path
 
@@ -40,17 +40,17 @@ for i in master['Customer'].values:
 print "Number of Price Lists Generating:"
 print len(soldtos)
 
-customer_names_file = pd.ExcelFile(customer_names)
-df_customernumbers = pd.read_excel(customer_names_file, "Backup")
-master = master.merge(df_customernumbers,on='Customer')
+#customer_names_file = pd.ExcelFile(customer_names)
+#df_customernumbers = pd.read_excel(customer_names_file, "Backup")
+#master = master.merge(df_customernumbers,on='Customer')
 master = master.set_index(['Customer'])
 
 master.to_excel("Output Master Table.xlsx")
 
-
+"""
 df_customernumbers = df_customernumbers.set_index(['Customer'])
 cndt = df_customernumbers.to_dict('series')
-
+"""
 wb = xw.App()
 
 for account_name in soldtos:
@@ -59,7 +59,7 @@ for account_name in soldtos:
         wb = xw.apps[0].books.open(pi_template)
         ws = wb.sheets[0]
         try:
-            ws.range('C9').options(index=False, header=False).value = master.loc[[account_name], ['CustomerName']][0:1]
+            ws.range('C9').options(index=False, header=False).value = master.loc[[account_name], ['PG']][0:1]
         except Exception:
             pass
             print "Skip Name"

@@ -58,13 +58,7 @@ for account_name in soldtos:
         print "Now working on customer number " + str(account_name)
         wb = xw.apps[0].books.open(pi_template)
         ws = wb.sheets[0]
-        try:
-            ws.range('C9').options(index=False, header=False).value = master.loc[[account_name], ['CustomerName']][0:1]
-        except Exception:
-            pass
-            print "Skip Name"
-            print account_name
-            skipped.append(account_name)
+        ws.range('C9').options(index=False, header=False).value = master.loc[[account_name], ['CustomerName']][0:1]
         ws.range('C10').options(index=False, header=False).value = account_name
         df2 = master.loc[[account_name], ['Material','UPC', 'Description', 'UOM', 'Amount', 'New']]
         df2['Delta'] = df2['New'] - df2['Amount']

@@ -29,6 +29,7 @@ os.chdir(project_path)
 
 #-------------Load Data Frame
 skipped = []
+
 increase_master = pd.ExcelFile(price_data_location)
 master = pd.read_excel(increase_master, sheet_name)
 exceptions = []
@@ -43,8 +44,8 @@ print len(soldtos)
 #customer_names_file = pd.ExcelFile(customer_names)
 #df_customernumbers = pd.read_excel(customer_names_file, "Backup")
 #master = master.merge(df_customernumbers,on='Customer')
+#master = master.set_index(['Soldto Name'])
 master = master.set_index(['Soldto Name'])
-
 master.to_excel("Output Master Table.xlsx")
 
 
@@ -53,20 +54,24 @@ master.to_excel("Output Master Table.xlsx")
 
 wb = xw.App()
 
-for account_name in soldtos[0:5]:
+for account_name in soldtos[0:2]:
     try:
         print "Now working on customer number " + str(account_name)
         wb = xw.apps[0].books.open(pi_template)
         ws = wb.sheets[0]
         #ws.range('C9').options(index=False, header=False).value = master.loc[[account_name], ['Soldto Name']][0:1]
         ws.range('C9').options(index=False, header=False).value = account_name
-        df2 = master.loc[[account_name], ['Material','UPC', 'Description', 'UOM', 'Amount', 'New']]
+        df2 = master.loc[[account_name], ['Material','UPC', 'Description', 'UOM', 'Amount', 'New', 'Profit Center']]
+        df2.sort_values(by=['Material'])
         df2['Delta'] = df2['New'] - df2['Amount']
         df2['Prc CHG'] = df2['Delta'] / df2['Amount']
         df2['Amount'] = df2['Amount'].round(2)
         df2['Delta'] = df2['Delta'].round(2)
         df2['Prc CHG'] = df2['Prc CHG'].round(2)
         rows = len(df2.loc[[account_name]])
+        df2 = df2.sort_values(by=['Profit Center', 'Material'])
+        df2 = df2.drop(columns='Profit Center')
+        #df2.to_excel('Testing123sorting.xlsx')
         print str(rows) + " SKU's" 
         if rows > 234:
             exceptions.append(account_name)
@@ -87,6 +92,9 @@ print exceptions
 print "Skipped"
 
 print skipped
+
+df3  = pd.DataFrame(skipped)
+df3.to_excel('Skipped.xlsx')
 
 print "--- %s Minutes ---" % round(float(((time.time() - start_time))/60),2)
 xw.App.quit(xw.apps.active)

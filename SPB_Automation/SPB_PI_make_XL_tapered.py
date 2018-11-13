@@ -46,7 +46,7 @@ print len(soldtos)
 #master = master.merge(df_customernumbers,on='Customer')
 #master = master.set_index(['Soldto Name'])
 master = master.set_index(['Soldto Name'])
-master.to_excel("Output Master Table.xlsx")
+master.to_excel("03 - Output Master Table.xlsx")
 
 
 #df_customernumbers = df_customernumbers.set_index(['Customer'])
@@ -94,7 +94,9 @@ print "Skipped"
 print skipped
 
 df3  = pd.DataFrame(skipped)
-df3.to_excel('Skipped.xlsx')
+df3.to_excel('01 - Skipped.xlsx')
+df5 = pd.DataFrame(exceptions)
+df5.to_excel('02 - Exceptions.xlsx')
 
 print "--- %s Minutes ---" % round(float(((time.time() - start_time))/60),2)
 xw.App.quit(xw.apps.active)

@@ -54,7 +54,7 @@ master.to_excel("03 - Output Master Table.xlsx")
 
 wb = xw.App()
 
-for account_name in soldtos[0:2]:
+for account_name in soldtos:
     try:
         print "Now working on customer number " + str(account_name)
         wb = xw.apps[0].books.open(pi_template)

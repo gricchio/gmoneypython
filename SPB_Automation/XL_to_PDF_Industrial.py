@@ -3,7 +3,7 @@ import os
 
 
 
-cpu_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\Retail'
+cpu_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\Industrial'
 PDF_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\PDF'
 
 
@@ -37,7 +37,7 @@ for file in files:
     chart_start = "A1"
     chart_gap  = 55
     final_row = 55 + (sheet_count - 1)*chart_gap
-    chart_end = "I" + str(final_row)  
+    chart_end = "K" + str(final_row)  
     wsa.ResetAllPageBreaks()
     
     wsa.Application.ActiveWindow.View = 2

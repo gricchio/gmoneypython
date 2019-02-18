@@ -6,7 +6,7 @@ Created on Feb 17, 2019
 import socket
 
 
-target_host = "www.google.com"
+target_host = "192.168.1.11"
 
 target_port = 80
 

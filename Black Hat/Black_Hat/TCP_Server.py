@@ -7,8 +7,8 @@ Created on Feb 17, 2019
 import socket
 import threading
 
-bind_ip = "0.0.0.0"
-bind_port = 9999
+bind_ip = "192.168.1.11"
+bind_port = 80
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -27,7 +27,7 @@ def handle_client(client_socket):
 
 while True:
     client,addr = server.accept()
-    print "[*] Accepted Connection from: %s:%d" % (addr[0]. addr[1])
+    print "[*] Accepted Connection from: %s:%d" % (addr[0], addr[1])
     client_handler = threading.Thread(target=handle_client, args=(client,))
     client_handler.start()
     

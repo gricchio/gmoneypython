@@ -3,8 +3,8 @@ import os
 
 
 
-cpu_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\Industrial'
-PDF_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\PDF'
+cpu_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\PRO\Excel'
+PDF_files = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\PRO\PDF'
 
 
 os.chdir(cpu_files)

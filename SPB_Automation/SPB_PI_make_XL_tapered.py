@@ -14,15 +14,15 @@ start_time = time.time()
 customer_names = r'C:\Users\200460\Desktop\Python Projects\Price List Project\COPA_backup.xlsx'
 pi_template = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price Increase Sample.xlsx'
 #price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price_data_real.xlsx'
-price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Master File V4 Final 11-13-2018.xlsx'
+price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Master File V10 12-18-2018.xlsx'
 #price_data_location = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Price_data_test.xlsx'
-project_path = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\Retail'
+
 #price_data_location = r'C:\Users\Gino Ricchio\Desktop\Python\Price_data_test.xlsx'
 #project_path = r'C:\Users\Gino Ricchio\Desktop\Python\Completed'
 #pi_template = r'C:\Users\Gino Ricchio\Desktop\Python\Price Increase Sample.xlsx'
 
-sheet_name = "Retail"
-
+sheet_name = "Boone"
+project_path = r'C:\Users\200460\Desktop\Python Projects\Price List Project\Completed\Retail\Boone\Excel'
 #-------------Move to Project Path
 
 os.chdir(project_path)

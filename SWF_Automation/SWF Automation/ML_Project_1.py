@@ -22,21 +22,21 @@ from scipy.stats import randint
 
 
 
-dir = r'C:\Users\riccga\Desktop\Python Exports\Machine Learning'
+dir = r'C:\Users\200460\Desktop\Python Projects\ML Project'
 os.chdir(dir)
 
-data_source = 'example_data.csv'
+data_source = 'PGATOUR_data2.csv'
 
 df = pd.read_csv(data_source)
-df= pd.get_dummies(df)
+df = pd.get_dummies(df)
 
 X = pd.DataFrame()
 Y = pd.DataFrame()
 
 #add data to X frame
 
-X['x'] = df['x']
-X['y'] = df['y']
+X[['x']] = df['x']
+X[['y']] = df['y']
 
 #add data to Y frame
 for col in df.columns.values:

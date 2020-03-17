@@ -6,7 +6,7 @@ Created on Mar 5, 2020
 #Imports
 import os 
 import openpyxl
-
+#hello
 #Variables
 project_folder = r"C:\Users\gino.ricchio\Desktop\Python Projects\Delete Tabs"
 inactive = ['ACCOUNTING',

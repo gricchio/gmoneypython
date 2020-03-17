@@ -6,7 +6,7 @@ Created on Nov 2, 2017
 
 import requests
 
-r = requests.get('https://springswindowfashions.saastagetik.com/prod/5#!/PROD_TGK_SPRINGSWINDOWFASHIONS_001')
+r = requests.get('https://eft-loot.com/')
 
 
 

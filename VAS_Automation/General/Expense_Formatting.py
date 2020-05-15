@@ -37,6 +37,11 @@ inactive = ['ACCOUNTING',
             'VVILEASED', 
             'WEIGHRITE',
             'WIRELESS',
+            'DAIRYCOMP',
+            'DCLITE',
+            'FEEDWATCH',
+            'PARLORWATCH',
+            'VASPLATFORM'
             ]
 
 #Code

@@ -4,7 +4,7 @@ total_fuel = 0
 
 list = []
 
-with open('C:\Users\gino.ricchio\Documents\Python Materials\day1data.txt') as f:
+with open('C:\Users\Gino\Documents\Python Materials') as f:
     listtxt = f.read().splitlines()
 
 for text in listtxt:

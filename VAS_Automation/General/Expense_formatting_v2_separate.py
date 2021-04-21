@@ -35,12 +35,15 @@ for name in os.listdir(project_folder):
 
 source = xw.Book(files[0])
 
+
+
 for dept in break_out:
     new = xw.Book()
-    source.sheets['Consolidated'].copy(before=new.sheets[0])
+    source.sheets[dept].copy(before=new.sheets[0])
     source.sheets['Roll Up'].copy(before=new.sheets[0])
-    source.sheets[dept]
-    new.save(dept + 'xlsx')
+    source.sheets['Consolidated'].copy(before=new.sheets[0])
+    new.sheets['Sheet1'].delete()
+    new.save(str(dept + '.xlsx'))
     new.close()
 
 

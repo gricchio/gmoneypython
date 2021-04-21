@@ -9,46 +9,24 @@ import openpyxl
 #hello
 #Variables
 project_folder = r"C:\Users\gino.ricchio\Desktop\Python Projects\Expense Separation"
-inactive = ['ACCOUNTING',
-            'ADMIN', 
-            'BLANK', 
-            'DAIRY', 
-            'DC', 
-            'DEV', 
-            'EQUIP', 
-            'FEED', 
-            'FW', 
-            'G & A', 
-            'GENERAL SW', 
-            'M & S', 
-            'MARKETING', 
-            'MGMT', 
-            'MORPHEUS', 
-            'NA', 
-            'OFFICE', 
-            'PARLOR', 
-            'PCC', 
-            'PLATFORM', 
-            'PW', 
-            'SPEC PROJ', 
-            'TAGS', 
-            'TLINK', 
-            'VAS LINKS', 
-            'VVILEASED', 
-            'WEIGHRITE',
-            'WIRELESS',
-            'DAIRYCOMP',
-            'DCLITE',
-            'FEEDWATCH',
-            'PARLORWATCH',
-            'VASPLATFORM'
+break_out = ['PD - Kevin',
+            'ENGINEERING',
+            'BUS DEV',
+            'EQUIPMENT',
+            'FIELD MARKETING',
+            'FINANCE',
+            'HR',
+            'IT',
+            'MANAGEMENT',
+            'PROD MGMT',
+            'SALES',
+            'SUPPORT',
+            'WAREHOUSE'
             ]
 
 #Code
 
-
 os.chdir(project_folder)
-
 
 files = []
 for name in os.listdir(project_folder):

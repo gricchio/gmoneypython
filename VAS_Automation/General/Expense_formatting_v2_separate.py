@@ -10,7 +10,6 @@ import xlwings as xw
 #Variables
 project_folder = r"C:\Users\gino.ricchio\Desktop\Python Projects\Expense Separation"
 break_out = ['PD - Kevin',
-            'ENGINEERING',
             'BUS DEV',
             'EQUIPMENT',
             'FIELD MARKETING',
@@ -18,7 +17,6 @@ break_out = ['PD - Kevin',
             'HR',
             'IT',
             'MANAGEMENT',
-            'PROD MGMT',
             'SALES',
             'SUPPORT',
             'WAREHOUSE'
@@ -36,9 +34,14 @@ for name in os.listdir(project_folder):
 source = xw.Book(files[0])
 
 
+os.chdir(os.path.join(project_folder,'New items'))
 
 for dept in break_out:
     new = xw.Book()
+    if dept == 'PD - Kevin':
+        source.sheets['ENGINEERING'].copy(before=new.sheets[0])
+        source.sheets['PROD MGMT'].copy(before=new.sheets[0])
+    else: print('Only one dept')
     source.sheets[dept].copy(before=new.sheets[0])
     source.sheets['Roll Up'].copy(before=new.sheets[0])
     source.sheets['Consolidated'].copy(before=new.sheets[0])

@@ -5,7 +5,7 @@ Created on Mar 5, 2020
 '''
 #Imports
 import os 
-import openpyxl
+import xlwings as xw
 #hello
 #Variables
 project_folder = r"C:\Users\gino.ricchio\Desktop\Python Projects\Expense Separation"
@@ -33,15 +33,14 @@ for name in os.listdir(project_folder):
     if os.path.isfile(os.path.join(project_folder, name)):
         files.append(name)
 
-workbook = openpyxl.load_workbook(files[0])
+source = xw.Book(files[0])
 
+for dept in break_out:
+    new = xw.Book()
+    source.sheets['Consolidated'].copy(before=new.sheets[0])
+    source.sheets['Roll Up'].copy(before=new.sheets[0])
+    source.sheets[dept]
+    new.save(dept + 'xlsx')
+    new.close()
 
-for sheet in workbook.sheetnames:
-    ws = workbook[sheet]
-    if sheet in inactive:
-        ws.sheet_state = 'hidden'
-        print(sheet, '---Hidden')
-print(workbook.sheetnames)
-
-workbook.save(str(files[0]))
 

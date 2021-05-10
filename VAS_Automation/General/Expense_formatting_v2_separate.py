@@ -24,17 +24,17 @@ break_out = ['PD - Kevin',
 
 
 #email list
-break_out2 = {"PD - Kevin" : "gino.ricchio@vas.com",
-            "BUS DEV": "ginoricchio@gmail.com",
-            "EQUIPMENT": "gino.ricchio@vas.com",
-            "FIELD MARKETING": "gino.ricchio@vas.com",
-            "FINANCE": "gino.ricchio@vas.com",
-            "HR": "gino.ricchio@vas.com",
-            "IT": "gino.ricchio@vas.com",
-            "MANAGEMENT": "gino.ricchio@vas.com",
-            "SALES": "gino.ricchio@vas.com",
-            "SUPPORT": "gino.ricchio@vas.com",
-            "WAREHOUSE": "gino.ricchio@vas.com"
+break_out2 = {"PD - Kevin" : "Kevin.Callihan@vas.com",
+            "BUS DEV": "Jordan.KraftLambert@vas.com",
+            "EQUIPMENT": "Lee.Zwahlen@vas.com",
+            "FIELD MARKETING": "Alexis.Smith@vas.com",
+            "FINANCE": "Joe.Docter@vas.com",
+            "HR": "Jennifer.Davidson@vas.com",
+            "IT": "German.Rendon@vas.com",
+            "MANAGEMENT": "robin.dunkijacobs@vas.com",
+            "SALES": "preston.vincent@vas.com",
+            "SUPPORT": "eddie.ormonde@vas.com",
+            "WAREHOUSE": "Lee.Zwahlen@vas.com"
             }
 
 #send function
@@ -45,6 +45,7 @@ def message_email_self(Message):
     workemail = break_out2[Message]
     mail = outlook.createitem(0)
     mail.To = workemail
+    mail.CC = "joe.docter@vas.com"
     mail.Subject = 'VAS Expense Overview - ' + Message
     mail.body = "Hello, please see the attached document for your monthly expenses. I look forward to reviewing with you in the near future. Talk soon, Gino"
     attachment1 = str(r"C:\Users\gino.ricchio\Desktop\Python Projects\Expense Separation\New Items/"+ Message + ".xlsx")

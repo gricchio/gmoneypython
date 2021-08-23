@@ -19,6 +19,7 @@ break_out = ['PD - Kevin',
             'MANAGEMENT',
             'SALES',
             'SUPPORT',
+            'PROD MGMT',
             'WAREHOUSE'
             ]
 
@@ -26,6 +27,7 @@ break_out = ['PD - Kevin',
 #email list
 break_out2 = {"PD - Kevin" : "Kevin.Callihan@vas.com",
             "BUS DEV": "Jordan.KraftLambert@vas.com",
+            "PROD MGMT": "Brad.Papineau@vas.com",
             "EQUIPMENT": "Lee.Zwahlen@vas.com",
             "FIELD MARKETING": "Alexis.Smith@vas.com",
             "FINANCE": "Joe.Docter@vas.com",
@@ -45,9 +47,9 @@ def message_email_self(Message):
     workemail = break_out2[Message]
     mail = outlook.createitem(0)
     mail.To = workemail
-    mail.CC = "joe.docter@vas.com"
+    mail.CC = "joe.docter@vas.com;Steve.Smith@vas.com"
     mail.Subject = 'VAS Expense Overview - ' + Message
-    mail.body = "Hello, please see the attached document for your monthly expenses. I look forward to reviewing with you in the near future. Talk soon, Gino"
+    mail.body = "Hello, please see the attached document for your monthly expenses. Please let me know if you have any questions. Talk soon, Gino"
     attachment1 = str(r"C:\Users\gino.ricchio\Desktop\Python Projects\Expense Separation\New Items/"+ Message + ".xlsx")
     print(attachment1)
     mail.Attachments.Add(Source=attachment1)
